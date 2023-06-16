@@ -23,6 +23,6 @@ else
 	putchar(i - 10 + 'a');
 	i++;
 }
-} puthcar('\n');
+} putchar('\n');
 return (0);
 }
