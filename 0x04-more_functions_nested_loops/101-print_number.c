@@ -1,10 +1,10 @@
 #include"main.h"
 /**
- * print_number - print an integer
+ * print_number - Print an integer.
  *
- * @n: The integer to be printed
+ * @n: The integer to be printed.
 */
-int main(void)
+void print_number(int n)
 {
 	unsigned int num = n;
 	/*first check if its negative*/
@@ -14,7 +14,7 @@ int main(void)
 		num = -num;
 	}
 	/* print the first few digit */
-	if((num / 10) > 0)
+	if ((num / 10) > 0)
 		print_number(num / 10);
 
 	/* print the last digit */
