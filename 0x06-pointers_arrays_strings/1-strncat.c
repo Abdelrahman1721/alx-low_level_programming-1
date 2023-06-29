@@ -1,12 +1,12 @@
 #include "main.h"
 
 /**
- * _strcat - function that concatenates
- *      two strings.
+ * _strncat - a function that concatenates two strings.
  *
- *@dest: pointer to destnation input
- *@src: pointer to source input
- *@n: most number fo byte
+ * @dest: pointer to destination input
+ * @src: pointer to source input
+ * @n: most number fo byte from @src
+ *
  * Return: @dest
 */
 
