@@ -7,20 +7,20 @@
  *@dest: pointer to destnation input
  *@src: pointer to source input
  *@n: most number fo byte
- * Return: pointer to resulting string @dest
+ * Return: @dest
 */
 
-char *_strcat(char *dest, char *src)
+char *_strncat(char *dest, char *src, int n)
 {
-	int z, c;
+	int z, i;
 
 	z = 0;
 
 	while (dest[z])
-	z++;
+		z++;
 
 	for (i = 0; i < n && src[i] != '\0'; i++)
-	dest[z + i] = src[c];
+		dest[z + i] = src[i];
 	dest[z + i] = '\0';
 
 	return (dest);
