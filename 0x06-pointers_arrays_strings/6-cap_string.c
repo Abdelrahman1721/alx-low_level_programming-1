@@ -1,58 +1,84 @@
-#include "main.h"
-#include <stdio.h>
-
-
+#include"main.h"
 /**
- * isLower - determines whether ascii is lowercase
- * @c: character
- * Return: 1 if true, 0 if false
-*/
-
-int isLower(char c)
-{
-	return (c >= 97 && c <= 122);
-}
-
-/**
- * isDelimiter - determines whether ascii is a delimiter
- * @c: character
- * Return: 1 if true, 0 if false
-*/
-
-
-int isDelimiter(char c)
-{
-	int i;
-	char delimiter[] = " \t\n,.!?\"(){}";
-
-	for (i = 0; i < 12; i++)
-		if (c == delimiter[i])
-			return (1);
-	return (0);
-
-/**
- * cap_string - capitalizes all words of a string
- * @s: input string
- * Return: string with capitalized words
+ * cap_string - prints array.
+ * @s: array
+ *
+ * Return: On success 1.
+ * On error, -1 is returned, and errno is set appropriately.
  */
-
 char *cap_string(char *s)
 {
-	char *ptr = s;
-	int foundDelimit = 1;
-
-	while (*s)
-	{
-		if (isDelimiter(*s))
-			foundDelimit = 1;
-		else if (isLower(*s) && foundDelimit)
-		{
-			*s -= 32;
-			foundDelimit = 0;
-		}
-		else
-			foundDelimit = 0;
-		s++;
-	}
-	return (ptr);
+char arr[] = " \t\n,.;{}()!?\"";
+int n = strlen(s), i;
+for (i = 0; i < n; i++)
+{
+int f = 0, j;
+for (j = 0; j < 13; j++)
+{
+if (s[i] == arr[j])
+f = 1;
 }
+if (s[i] >= 'a' && s[i] <= 'z' && i == 0)
+s[i] -= 32;
+if (s[i + 1] >= 'a' && s[i + 1] <= 'z' && f == 1)
+s[i + 1] -= 32;
+}
+return (s);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
