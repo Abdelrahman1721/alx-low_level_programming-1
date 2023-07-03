@@ -1,7 +1,7 @@
 #include"main.h"
 
 /**
- * _memset - prints array.
+ * *_memset - prints array.
  * @s: pointer
  * @b: constant
  * @n: integer
