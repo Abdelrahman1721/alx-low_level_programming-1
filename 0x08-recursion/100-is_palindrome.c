@@ -1,37 +1,47 @@
 #include "main.h"
 
 /**
- * is_palindrome - palindrome or nah?
- * @s: pointer to a string
+ * _strlen - return length of string
+ * @str: string to check
  *
- * Return: 0 or 1
+ * Return: length of str
  */
-int is_palindrome(char *s)
+int _strlen(char *str)
 {
-	return (_palindrome(s, 0));
+	if (*str == '\0')
+		return (0);
+	else
+		return (1 + _strlen(str + 1));
 }
 
 /**
- * _palindrome - palindrome or nah?
- * @s: pointer to a string
- * @n: iterator 0
+ * check_palindrome - checks to see if a string is a palindrome
+ * @l: left hand index
+ * @r: right hand index
+ * @p: possible palindrome
  *
- * Return: 0 or 1
+ * Return: 1 if palindrome 0 if not
  */
-int _palindrome(char *s, int n)
+int check_palindrome(int l, int r, char *p)
 {
-	int length = strlen(s);
-
-	if (n == length)
-	{
+	if (l >= r)
 		return (1);
-	}
-	else if (s[n] != s[length - 1 - n])
-	{
+	else if (p[l] != p[r])
 		return (0);
-	}
 	else
-	{
-		return (_palindrome(s, n + 1));
-	}
+		return (check_palindrome(l + 1, r - 1, p));
+}
+
+/**
+ * is_palindrome - states if a string is a palindrome
+ * @s: string to check
+ *
+ * Return: 1 if palindrome, 0 if not
+ */
+int is_palindrome(char *s)
+{
+	int i;
+
+	i = _strlen(s) - 1;
+	return (check_palindrome(0, i, s));
 }
