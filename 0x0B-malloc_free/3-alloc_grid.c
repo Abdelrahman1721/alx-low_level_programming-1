@@ -13,7 +13,7 @@ int **alloc_grid(int width, int height)
 	int i, j, **bat;
 
 	bat = malloc(sizeof(**bat) * height);
-	if (width <= 0 || height <= 0 || bat <= 0)
+	if (width <= 0 || height <= 0 || bat == 0)
 	{
 		return (NULL);
 	}
