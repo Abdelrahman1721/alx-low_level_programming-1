@@ -10,7 +10,7 @@
 
 int **alloc_grid(int width, int height)
 {
-	int i, j, **bat;
+	int **bat, i, j;
 
 	bat = malloc(sizeof(**bat) * height);
 	if (width <= 0 || height <= 0 || bat == 0)
@@ -19,20 +19,19 @@ int **alloc_grid(int width, int height)
 	}
 	else
 	{
-	for (i = 0; i < height; i++)
-	{
-		bat[i] = malloc(sizeof(**bat) * width);
-		if (bat[i] == 0)
+		for (i = 0; i < height; i++)
 		{
-			while (i--)
-				free(bat[i]);
-			free(bat);
-			return (NULL);
+			bat[i] = malloc(sizeof(**bat) * width);
+			if (bat[i] == 0)
+			{
+				while (i--)
+					free(bat[i]);
+				free(bat);
+				return (NULL);
+			}
+			for (j = 0; j < width; j++)
+			bat[i][j] = 0;
 		}
-	for (j = 0; j < width; j++)
-		bat[i][j] = 0;
-	}
 	}
 	return (bat);
 }
-
