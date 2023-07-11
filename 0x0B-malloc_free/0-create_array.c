@@ -11,12 +11,8 @@ char *create_array(unsigned int size, char c)
 	unsigned int i;
 
 	for (size == 0 || n == 0)
-	{
 		return (0);
-	}
 	for (i = 0; i < size; i++)
-	{
 		n[size] = c;
-	}
 	return (n);
 }
